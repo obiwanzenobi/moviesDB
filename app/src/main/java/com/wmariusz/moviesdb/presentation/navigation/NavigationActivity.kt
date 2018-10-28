@@ -16,6 +16,9 @@ class NavigationActivity : DaggerAppCompatActivity() {
         val navController = findNavController(this, R.id.mainNavigation)
 
         mainBottomNavigation.setupWithNavController(navController)
+        mainBottomNavigation.setOnNavigationItemReselectedListener {
+            // intentionally empty to prevent fragment stack reset on reselect of a navigation item
+        }
     }
 
     override fun onSupportNavigateUp() = findNavController(this, R.id.mainNavigation).navigateUp()
